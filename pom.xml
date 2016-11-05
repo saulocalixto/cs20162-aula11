@@ -134,7 +134,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>jars/</classpathPrefix>
-                            <mainClass>com.github.kyriosdata.exemplo.ProgramaCalendario</mainClass>
+                            <mainClass>com.github.saulocalixto.parsen.main</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

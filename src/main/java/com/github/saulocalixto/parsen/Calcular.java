@@ -4,9 +4,9 @@
  * and open the template in the editor.
  */
 package com.github.saulocalixto.parsen;
+
 import com.github.kyriosdata.parser.Lexer;
 import com.github.kyriosdata.parser.Parser;
-
 
 /**
  *
@@ -14,14 +14,11 @@ import com.github.kyriosdata.parser.Parser;
  */
 public class Calcular {
 
-    public static void main(String[] args) {
+    public static double calcularExpressao(String expressao) {
 
-
-        if(args[0] != null) {
-            Lexer calcula = new Lexer(args[0]);
-            Parser processador = new Parser(calcula.tokenize());
-            System.out.println(processador.expressao().valor());
-        }
+        Lexer calcula = new Lexer(expressao);
+        Parser processador = new Parser(calcula.tokenize());
+        return (processador.expressao().valor());
 
     }
 
