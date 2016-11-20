@@ -5,32 +5,42 @@
  */
 package com.github.saulocalixto.parsen;
 
-import static org.junit.Assert.assertEquals;
+
 import org.junit.Before;
-import org.junit.Rule;
 import org.junit.Test;
+import org.junit.Rule;
 import org.junit.contrib.java.lang.system.ExpectedSystemExit;
+
 
 /**
  *
  * @author saulocalixto
  */
-public class CalcularTest {
-
-    Calcular calculo;
+public class systemExitTest {
     
+    systemExit saida;
+
     @Before
     public void executaAntes() {
-        calculo = new Calcular();
-}
-    
+        saida = new systemExit();
+    }
     @Rule
     public final ExpectedSystemExit exit = ExpectedSystemExit.none();
 
     @Test
-    public void saidaCorreta() {
-        String expressao = "5+5";
-        assertEquals(10.0f, calculo.calcularExpressao(expressao),0.0f);
+    public void saidaCerta() {
+        exit.expectSystemExitWithStatus(0);
+        String expressao;
+        expressao = "15*7";
+        systemExit.Saida(expressao);
     }
-
+    
+    @Test
+    public void Invalido() {
+        exit.expectSystemExitWithStatus(1);
+        String expressao;
+        expressao = "5++--";
+        saida.Saida(expressao);
+    }
+    
 }

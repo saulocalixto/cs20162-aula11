@@ -8,7 +8,7 @@ package com.github.saulocalixto.parsen;
 /**
  * @author Saulo de Araújo Calixto
  */
-public class Executavel {
+public class main {
 
     /**
      *
@@ -17,12 +17,13 @@ public class Executavel {
      */
     public static void main(final String[] args) {
 
-        String conta;
-        try {
+        if(args[0] != null) {
+            String conta;
             conta = args[0];
-            Calcular.calcularExpressao(conta);
-        } catch (ArrayIndexOutOfBoundsException aioobe) {
-            System.err.println("Expressão nula.");
+            systemExit resultado = new systemExit();
+            resultado.Saida(conta);
+        } else {
+            System.out.println("Expressão nula");
             System.exit(1);
         }
     }
