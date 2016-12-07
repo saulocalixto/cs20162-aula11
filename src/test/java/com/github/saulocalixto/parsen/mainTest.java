@@ -5,7 +5,6 @@
  */
 package com.github.saulocalixto.parsen;
 
-import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.contrib.java.lang.system.ExpectedSystemExit;
@@ -16,17 +15,31 @@ import org.junit.contrib.java.lang.system.ExpectedSystemExit;
  */
 public class mainTest {
 
-    String[] expressaonula = new String[1];
-    String[] expressaocorreta = new String[1];
+ 
 
     @Rule
     public final ExpectedSystemExit exit = ExpectedSystemExit.none();
 
     @Test
     public void saidaCerta() {
+        String[] expressaocorreta = new String[1];
         expressaocorreta[0] = "5+10";
         exit.expectSystemExitWithStatus(0);
-        main.main(expressaocorreta);
+        Starter.main(expressaocorreta);
     }
 
+    @Test(expected = Exception.class)
+    public void saidaErrada() {
+        String[] errada;
+        errada = new String[1];
+        errada[0] = "//5+10+3+";
+        Starter.main(errada);
+    }
+    
+    @Test(expected = NullPointerException.class)
+    public void saidaNula() {
+        String[] errada;
+        errada = null;
+        Starter.main(errada);
+    }
 }

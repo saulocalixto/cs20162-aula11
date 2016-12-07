@@ -5,11 +5,9 @@
  */
 package com.github.saulocalixto.parsen;
 
+import org.junit.Assert;
 import static org.junit.Assert.assertEquals;
-import org.junit.Before;
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.contrib.java.lang.system.ExpectedSystemExit;
 
 /**
  *
@@ -18,20 +16,17 @@ import org.junit.contrib.java.lang.system.ExpectedSystemExit;
 public class CalcularTest {
 
     Calcular calculo;
-    
-    @Before
-    public void executaAntes() {
-        calculo = new Calcular();
-}
-    
-    @Rule
-    public final ExpectedSystemExit exit = ExpectedSystemExit.none();
 
     @Test
     public void saidaCorreta() {
-        exit.expectSystemExitWithStatus(1);
         String expressao = "5+5";
-        assertEquals(10.0f, calculo.calcularExpressao(expressao),0.0f);
+        assertEquals(10.0f, calculo.calcularExpressao(expressao), 0.0f);
+    }
+
+    @Test
+    public void chamarConstrutor() {
+        Calcular calc = new Calcular();
+        Assert.assertNotNull(calc);
     }
 
 }
