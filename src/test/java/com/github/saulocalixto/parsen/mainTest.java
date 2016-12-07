@@ -16,29 +16,17 @@ import org.junit.contrib.java.lang.system.ExpectedSystemExit;
  */
 public class mainTest {
 
-    Calcular calculo;
+    String[] expressaonula = new String[1];
+    String[] expressaocorreta = new String[1];
 
-    @Before
-    public void executaAntes() {
-        calculo = new Calcular();
-    }
     @Rule
     public final ExpectedSystemExit exit = ExpectedSystemExit.none();
 
     @Test
     public void saidaCerta() {
+        expressaocorreta[0] = "5+10";
         exit.expectSystemExitWithStatus(0);
-        String[] expressao = new String[1];
-        expressao[0] = "15*7";
-        main.main(expressao);
-    }
-    
-        @Test
-    public void expressaoNula() {
-        exit.expectSystemExitWithStatus(1);
-        String[] expressao = new String[1];
-        expressao[0] = null;
-        main.main(expressao);
+        main.main(expressaocorreta);
     }
 
 }

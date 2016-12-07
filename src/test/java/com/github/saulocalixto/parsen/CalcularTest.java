@@ -29,6 +29,7 @@ public class CalcularTest {
 
     @Test
     public void saidaCorreta() {
+        exit.expectSystemExitWithStatus(1);
         String expressao = "5+5";
         assertEquals(10.0f, calculo.calcularExpressao(expressao),0.0f);
     }
