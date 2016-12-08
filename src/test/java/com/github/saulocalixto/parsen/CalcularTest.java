@@ -28,5 +28,4 @@ public class CalcularTest {
         Calcular calc = new Calcular();
         Assert.assertNotNull(calc);
     }
-
 }

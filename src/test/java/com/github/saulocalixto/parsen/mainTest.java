@@ -5,17 +5,12 @@
  */
 package com.github.saulocalixto.parsen;
 
+import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.contrib.java.lang.system.ExpectedSystemExit;
 
-/**
- *
- * @author saulocalixto
- */
 public class mainTest {
-
- 
 
     @Rule
     public final ExpectedSystemExit exit = ExpectedSystemExit.none();
@@ -35,11 +30,20 @@ public class mainTest {
         errada[0] = "//5+10+3+";
         Starter.main(errada);
     }
-    
-    @Test(expected = NullPointerException.class)
-    public void saidaNula() {
+
+    @Test(expected = Exception.class)
+    public void saidaErrada2() {
         String[] errada;
-        errada = null;
+        errada = new String[1];
+        errada[0] = null;
         Starter.main(errada);
+    }
+
+    @Test()
+    public void Construtor() {
+
+        Starter main = new Starter();
+
+        Assert.assertNotNull(main);
     }
 }

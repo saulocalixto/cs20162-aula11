@@ -8,9 +8,6 @@ package com.github.saulocalixto.parsen;
 import com.github.kyriosdata.parser.Lexer;
 import com.github.kyriosdata.parser.Parser;
 
-/**
- * @author saulocalixto
- */
 public class Calcular {
 
     /**
@@ -21,7 +18,7 @@ public class Calcular {
      * uma expres- sao válida e então chama a classe Parser para obter o
      * resultado. Caso tudo ocorra como esperado retorna 0, caso contrário,
      * retorna 1.
-     * 
+     *
      * @return retorna o resultado da expressão passada pelo usuário.
      */
     public static float calcularExpressao(final String expressao) {

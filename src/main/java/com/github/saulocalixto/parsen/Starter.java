@@ -19,15 +19,11 @@ public class Starter {
      */
     public static void main(final String[] args) {
         int saida = 0;
-        if (args[0].length() > 0) {
-            try {
-                System.out.println(Calcular.calcularExpressao(args[0]));
-            } catch (IllegalArgumentException erro) {
-                System.err.println("Expressão inválida:" + erro.getMessage());
-                saida = 1;
-            }
-        } else {
-            System.err.println("Argumento Nulo");
+        try {
+            System.out.println(Calcular.calcularExpressao(args[0]));
+        } catch (IllegalArgumentException
+                | ArrayIndexOutOfBoundsException erro) {
+            System.err.println("Expressão inválida:" + erro.getMessage());
             saida = 1;
         }
 
